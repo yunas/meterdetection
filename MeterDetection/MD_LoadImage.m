@@ -1,6 +1,5 @@
-function [I] = MD_LoadImage 
+function [I] = MD_LoadImage (imageName)
 
-imageName = 'meter3.JPG';
 I       = imread(imageName);
 imshow(I);
 

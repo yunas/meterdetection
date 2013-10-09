@@ -22,7 +22,7 @@ function varargout = MeterDetectionGui(varargin)
 
 % Edit the above text to modify the response to help MeterDetectionGui
 
-% Last Modified by GUIDE v2.5 07-Oct-2013 14:25:48
+% Last Modified by GUIDE v2.5 09-Oct-2013 15:49:59
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -47,6 +47,10 @@ end
 
 % --- Executes just before MeterDetectionGui is made visible.
 function MeterDetectionGui_OpeningFcn(hObject, eventdata, handles, varargin)
+
+global imageName;
+imageName = 'meter1.JPG';
+
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -78,8 +82,11 @@ varargout{1} = handles.output;
 function pushbutton1_Callback(hObject, eventdata, handles)
 
 
+
 global I;
-I = MD_LoadImage;
+global imageName ;
+
+I = MD_LoadImage (imageName);
 
 
 % --- Executes on button press in pushbutton2.
@@ -107,3 +114,60 @@ meterImg = MD_GetMeterImage (I,croppedRect);
 emptyImage = zeros;
 figure;
 imshow(meterImg);
+
+
+% --- Executes on selection change in popupmenu1.
+function popupmenu1_Callback(hObject, eventdata, handles)
+
+list=get(handles.popupmenu1,'String'); 
+selectedValue = list{get(handles.popupmenu1,'Value')};
+
+global imageName ;
+
+if (strcmp(selectedValue, 'Meter Image 1'))
+
+    imageName = 'meter1.JPG';
+    
+elseif (strcmp(selectedValue, 'Meter Image 2'))
+    
+        imageName = 'meter2.JPG';
+    
+elseif (strcmp(selectedValue, 'Meter Image 3'))
+
+        imageName = 'meter3.JPG';
+        
+else
+        
+        imageName = 'meter4.JPG';
+
+end
+    
+fprintf('imageName %s\n',imageName);
+global I;
+
+I = MD_LoadImage (imageName);
+
+fprintf('%s\n',selectedValue);
+
+
+
+
+% hObject    handle to popupmenu1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popupmenu1
+
+
+% --- Executes during object creation, after setting all properties.
+function popupmenu1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popupmenu1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end

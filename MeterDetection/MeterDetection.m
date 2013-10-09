@@ -7,7 +7,9 @@ function MeterDetection
  
 %   bw= edge(gmap,'prewitt',0.05);  
 %   bw = edge(gmap,'canny',0.1);
-I = MD_LoadImage;    
+imageName = 'meter1.JPG';
+
+I = MD_LoadImage(imageName);    
 bw = MD_ImgByApplyingEdgeDetection(I);
 cropRect = MD_GetMeterRect(bw);
 meterImg = MD_GetMeterImage (I,cropRect);
