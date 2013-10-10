@@ -22,7 +22,7 @@ function varargout = MeterDetectionGui(varargin)
 
 % Edit the above text to modify the response to help MeterDetectionGui
 
-% Last Modified by GUIDE v2.5 09-Oct-2013 15:49:59
+% Last Modified by GUIDE v2.5 10-Oct-2013 13:33:07
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -109,6 +109,7 @@ croppedRect = MD_GetMeterRect(edgedImage);
 function pushbutton4_Callback(hObject, eventdata, handles)
 global croppedRect;
 global I;
+global meterImg;
 
 meterImg = MD_GetMeterImage (I,croppedRect);
 emptyImage = zeros;
@@ -171,3 +172,13 @@ function popupmenu1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+global meterImg;
+SegmentImage (meterImg);
+
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
