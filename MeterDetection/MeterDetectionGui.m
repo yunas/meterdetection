@@ -177,7 +177,8 @@ end
 % --- Executes on button press in pushbutton5.
 function pushbutton5_Callback(hObject, eventdata, handles)
 global meterImg;
-SegmentImage (meterImg);
+% SegmentImage (meterImg);
+watershedSegmentation(meterImg);
 
 % hObject    handle to pushbutton5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB

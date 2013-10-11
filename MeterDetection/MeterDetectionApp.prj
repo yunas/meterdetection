@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration target="target.mlapps" target-name="Package App" name="MeterDetectionApp" location="/Users/coeus/Documents/MATLAB/meterdetection/MeterDetection" file="/Users/coeus/Documents/MATLAB/meterdetection/MeterDetection/MeterDetectionApp.prj" build-checksum="3232194550">
+    <param.appname>MeterDetectionApp</param.appname>
+    <param.authnamewatermark>Yunas</param.authnamewatermark>
+    <param.email />
+    <param.company />
+    <param.icon>${PROJECT_ROOT}/MeterDetectionApp_24.png</param.icon>
+    <param.summary>Test package</param.summary>
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.products.name>
+      <item>MATLAB</item>
+      <item>Image Processing Toolbox</item>
+    </param.products.name>
+    <param.products.id>
+      <item>1</item>
+      <item>17</item>
+    </param.products.id>
+    <param.products.version>
+      <item>8.1</item>
+      <item>8.2</item>
+    </param.products.version>
+    <param.platforms />
+    <param.output>/Users/coeus/Desktop/TEST/MeterDetectionApp.mlappinstall</param.output>
+    <param.guid>4343927d-e127-4a9d-81ed-c2375a7277ba</param.guid>
+    <unset>
+      <param.email />
+      <param.company />
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.platforms />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/MeterDetectionGui.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/MD_GetMeterImage.m</file>
+      <file>${PROJECT_ROOT}/MD_GetMeterRect.m</file>
+      <file>${PROJECT_ROOT}/MD_ImgByApplyingEdgeDetection.m</file>
+      <file>${PROJECT_ROOT}/MD_LoadImage.m</file>
+      <file>${PROJECT_ROOT}/MeterDetectionGui.fig</file>
+      <file>${PROJECT_ROOT}/SegmentImage.m</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file name="MeterDetectionApp.mlappinstall" location="/Users/coeus/Desktop/TEST" optional="false">/Users/coeus/Desktop/TEST/MeterDetectionApp.mlappinstall</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2013a.app</root>
+      <toolboxes>
+        <toolbox name="fixedpoint" />
+      </toolboxes>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.8.4</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
+

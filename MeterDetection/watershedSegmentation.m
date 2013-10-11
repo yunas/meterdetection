@@ -1,11 +1,11 @@
-function watershedSegmentation
+function watershedSegmentation(rgb)
 
-rgb = imread('pears.png');
+% rgb = imread('meter1.jpg');
 I = imgInGrayScale (rgb);
 gradmag = getGradientMagnitude(I); 
-Iobrcbr = markForgroundObjects(I);
+[Iobrcbr,fgm4] = markForgroundObjects(I);
 [bw,bgm] = markBackgroundMarkers (Iobrcbr);
-computeWatershedTranform(gradmag,bgm,fgm4);
+L = computeWatershedTranform(gradmag,bgm,fgm4);
 visualizeResult (I, bgm, fgm4, L);
 
 end
